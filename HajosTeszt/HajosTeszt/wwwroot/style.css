@@ -1,0 +1,103 @@
+﻿html, body {
+    height: 100%;
+    overflow: hidden;
+    background-color: #F3F3F4;
+    font-family: 'Dosis', sans-serif;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+div {
+    margin: 12px;
+    padding: 24px;
+}
+
+#külső {
+    margin: 0px 4px 0px 4px;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#kérdés_szöveg {
+    margin-top: 0;
+    border-radius: 0px 0px 12px 12px;
+    background-color: #D8CBC7;
+    color: black;
+    text-align: center;
+    font-size: 150%;
+}
+
+#középső {
+    margin: 40px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    background-color: #D8CBC7;
+}
+
+#válaszok {
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: #9A6D38;
+}
+
+#kép {
+    padding: 12px;
+    flex-shrink: 0;
+    flex-shrink: 0;
+    background-color: #9A6D38;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#vezérlő {
+    margin-bottom: 0;
+    padding: 0;
+    border-radius: 12px 12px 0px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #D8CBC7;
+}
+
+.kerdes {
+    background-color: #F3F3F4;
+    color: black;
+    font-size: 125%;
+    font-weight: 600;
+    box-shadow: inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+}
+
+.gomb {
+    padding: 20px;
+    width: 80px;
+    background-color: #F3F3F4;
+    color: black;
+}
+
+.tukor {
+    text-align: right;
+}
+
+.kattintható:hover {
+    background-color: #19231A;
+    color: white;
+    cursor: pointer;
+}
+
+.jó:active {
+    background-color: #33673B;
+    color: white;
+}
+
+.rossz:active {
+    background-color: #CC3F0C;
+    color: white;
+}
