@@ -20,12 +20,12 @@
                 <div id="válasz3" class="kerdes kattintható rossz">Válasz 3</div>
             </div>
             <div class="mobile" id="kép">
-                <img id="kép1" src="https://szoft1.comeback.hu/hajo/teszt-0050.jpg" />
+                <img id="kép1" onerror="this.style.display='none'" onload="this.style.display='initial'"/>
             </div>
         </div>
         <div id="vezérlő">
-            <div id="vissza" class="gomb kattintható">Vissza</div>
-            <div id="elore" class="gomb tukor kattintható">Előre</div>
+            <div id="vissza" class="gomb kattintható" onclick="prev()">Vissza</div>
+            <div id="elore" class="gomb tukor kattintható" onclick="next()">Előre</div>
         </div>
     </div>
 

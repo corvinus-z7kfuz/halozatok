@@ -1,36 +1,37 @@
-﻿var kerdesek;
+﻿var id = 1;
 
+function kérdésBetöltés(id) {
+    fetch(`/questions/${id}`)
+        .then(response => {
+            if (!response.ok) {
+                console.error(`Hibás válasz: ${response.status}`)
+            }
+            else {
+                return response.json()
+            }
+        })
+        .then(data => kérdésMegjelenítés(data));
+}    
 
+function kérdésMegjelenítés(kérdés) {
+    console.log(kérdés);
+    document.getElementById("kérdés_szöveg").innerText = kérdés.questionText;
+    document.getElementById("válasz1").innerText = kérdés.answer1;
+    document.getElementById("válasz2").innerText = kérdés.answer2;
+    document.getElementById("válasz3").innerText = kérdés.answer3;
+    document.getElementById("kép1").src = "https://szoft1.comeback.hu/hajo/" + kérdés.image;
+}
 
-window.onload = function letoltes() {
-    fetch('/questions.json')
-        .then(r => r.json())
-        .then(d => letoltesBefejezodott(d));
+window.onload = kérdésBetöltés(id);
 
-    function letoltesBefejezodott(adat) {
-        let kerdesSzoveg = document.getElementById("kérdés_szöveg");
-        console.log("Sikeres letöltés");
-        kerdesek = adat;
-        console.log(`${adat.length} kérdés érkezett`)
+function next() {
+    id++;
+    kérdésBetöltés(id);
+}
 
-        function kerdesMegjelenites(i) {
-            console.log(kerdesek[i].questionText);
-            document.getElementById("kérdés_szöveg").innerHTML = adat[i].questionText;
-            document.getElementById("válasz1").innerHTML = adat[i].answer1;
-            document.getElementById("válasz2").innerHTML = adat[i].answer2;
-            document.getElementById("válasz3").innerHTML = adat[i].answer3;
-        }
-
-        window.onload = kerdesMegjelenites(0);
-
-        prev = function (i) {
-            kerdesMegjelenites(2);
-        }
-        next = function (i) {
-            kerdesMegjelenites(1);
-        }
-
-        document.getElementById("vissza").onclick = prev;
-        document.getElementById("elore").onclick = next;
+function prev() {
+    if (id > 1) {
+        id--;
+        kérdésBetöltés(id);
     }
 }
