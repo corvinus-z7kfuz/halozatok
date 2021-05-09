@@ -92,12 +92,18 @@ img {
     cursor: pointer;
 }
 
-.jó:active {
+.jó {
     background-color: #33673B;
     color: white;
 }
 
-.rossz:active {
+.rossz {
     background-color: #CC3F0C;
     color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    #középső {
+        flex-direction: column;
+    }
 }
